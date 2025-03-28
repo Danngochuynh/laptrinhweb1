@@ -113,22 +113,27 @@ class CrudUserController extends Controller
     public function postUpdateUser(Request $request)
     {
         $input = $request->all();
-
+    
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users,id,'.$input['id'],
-            'password' => 'required|min:6',
+            'email' => 'required|email|unique:users,email,'.$input['id'],
+            'password' => 'nullable|min:6',
+            'phone' => 'required',
+            'address' => 'required'
         ]);
-
-       $user = User::find($input['id']);
-       $user->name = $input['name'];
-       $user->email = $input['email'];
-       $user->password = $input['password'];
-       $user->save();
-
-        return redirect("list")->withSuccess('You have signed-in');
-    }
-
+    
+        $user = User::find($input['id']);
+        $user->name = $input['name'];
+        $user->email = $input['email'];
+        if (!empty($input['password'])) {
+            $user->password = Hash::make($input['password']);
+        }
+        $user->phone = $input['phone'];
+        $user->address = $input['address'];
+        $user->save();
+    
+        return redirect("list")->withSuccess('User updated successfully!');
+    }    
     /**
      * List of users
      */
