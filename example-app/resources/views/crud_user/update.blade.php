@@ -55,7 +55,7 @@
                             </div>
 
                             <div class="form-group mb-3">
-                                <input type="password" placeholder="New Password (Optional)" id="password" class="form-control"
+                                <input type="password" placeholder="New Passwords (Optional)" id="password" class="form-control"
                                     name="password">
                                 @if ($errors->has('password'))
                                 <span class="text-danger">{{ $errors->first('password') }}</span>
