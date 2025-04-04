@@ -83,7 +83,7 @@ class CrudUserController extends Controller
         $user_id = $request->get('id');
         $user = User::find($user_id);
 
-        return view('crud_user.read', ['messi' => $user]);
+        return view('crud_user.read', ['user' => $user]); //messi
     }
 
     /**

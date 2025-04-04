@@ -1,6 +1,13 @@
 @extends('dashboard')
 
+@section('actions')
+    <div class="d-flex justify-content-end">
+        <a href="{{ route('user.createUser') }}" class="btn btn-success">+ Thêm người dùng</a>
+    </div>
+@endsection
+
 @section('content')
+    <h2>Danh sách người dùng</h2>
     <!-- Main -->
     <main>
         <div class="container mt-5">

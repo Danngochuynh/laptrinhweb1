@@ -1,69 +1,53 @@
 @extends('dashboard')
 
 @section('content')
-    <!-- Main -->
-    <main>
-        <div class="container mt-5 d-flex justify-content-center">
-            <div class="border border-2 border-dark p-5" style="max-width: 500px; width: 100%">
-                <h1 class="text-center fs-5 mb-4">Màn hình thêm</h1>
-                <form action="{{ route('user.postCreateUser') }}" method="POST">
-                    @csrf
-                    <div class="mb-4 row align-items-center">
-                        <label for="username" class="col-sm-3 form-label">Username</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control p-1 border border-dark rounded-0" name="name"
-                                id="username" required placeholder="Nhập username" />
-                            @if ($errors->has('name'))
-                                <span class="text-danger">{{ $errors->first('name') }}</span>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="mb-3 row align-items-center">
-                        <label for="email" class="col-sm-3 form-label">Email</label>
-                        <div class="col-sm-9">
-                            <input type="email" class="form-control p-1 border border-dark rounded-0" name="email"
-                                id="email" required placeholder="Nhập email" />
-                            @if ($errors->has('email'))
-                                <span class="text-danger">{{ $errors->first('email') }}</span>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="mb-3 row align-items-center">
-                        <label for="phone" class="col-sm-3 form-label">Phone</label>
-                        <div class="col-sm-9">
-                            <input type="tel" class="form-control p-1 border border-dark rounded-0" name="phone"
-                                id="phone" required pattern="[0-9]{10,12}" placeholder="Nhập số điện thoại" />
-                            @if ($errors->has('phone'))
-                                <span class="text-danger">{{ $errors->first('phone') }}</span>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="mb-3 row align-items-center">
-                        <label for="address" class="col-sm-3 form-label">Address</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control p-1 border border-dark rounded-0" name="address"
-                                id="address" placeholder="Nhập địa chỉ" />
-                            @if ($errors->has('address'))
-                                <span class="text-danger">{{ $errors->first('address') }}</span>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="mb-3 row align-items-center">
-                        <label for="password" class="col-sm-3 form-label">Mật khẩu</label>
-                        <div class="col-sm-9">
-                            <input type="password" class="form-control p-1 border border-dark rounded-0" name="password"
-                                id="password" required placeholder="Nhập mật khẩu" />
-                            @if ($errors->has('password'))
-                                <span class="text-danger">{{ $errors->first('password') }}</span>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center mt-5">
-                        <a class="ms-auto me-4 text-decoration-none" href="{{ route('user.list') }}">Quay lại</a>
-                        <button type="submit" class="btn btn-primary">Thêm</button>
-                    </div>
-                </form>
-            </div>
+<main>
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="border border-2 border-dark p-5" style="max-width: 500px; width: 100%">
+            <h1 class="text-center fs-5 mb-4">Thêm người dùng</h1>
+            <form action="{{ route('user.postUser') }}" method="POST">
+                @csrf
+                <div class="mb-4">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" name="name" id="username" required placeholder="Nhập username">
+                    @error('name')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" name="email" id="email" required placeholder="Nhập email">
+                    @error('email')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-4">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="tel" class="form-control" name="phone" id="phone" required pattern="[0-9]{10,12}" placeholder="Nhập số điện thoại">
+                    @error('phone')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-4">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" name="address" id="address" placeholder="Nhập địa chỉ">
+                    @error('address')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="form-label">Mật khẩu</label>
+                    <input type="password" class="form-control" name="password" id="password" required placeholder="Nhập mật khẩu">
+                    @error('password')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="d-flex justify-content-between mt-4">
+                    <a class="text-decoration-none" href="{{ route('user.list') }}">Quay lại</a>
+                    <button type="submit" class="btn btn-primary">Thêm</button>
+                </div>
+            </form>
         </div>
-    </main>
+    </div>
+</main>
 @endsection
