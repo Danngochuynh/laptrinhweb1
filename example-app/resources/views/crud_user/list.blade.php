@@ -17,12 +17,12 @@
                 <table class="table table-bordered table-striped">
                     <thead class="table-light">
                         <tr>
-                            <th class="text-center">ID</th>
-                            <th class="text-center">Username</th>
-                            <th class="text-center">Email</th>
-                            <th class="text-center">Phone</th>
-                            <th class="text-center">Address</th>
-                            <th class="text-center">Action</th>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,16 +31,13 @@
                                 <td class="text-center">{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->phone }}</td>
-                                <td>{{ $user->address }}</td>
-                                <td class="text-center">
-                                    <a href="{{ route('user.updateUser', ['id' => $user->id]) }}"
-                                        class="btn btn-sm btn-success">Edit</a>
-                                    <a href="{{ route('user.readUser', ['id' => $user->id]) }}"
-                                        class="btn btn-sm btn-warning">View</a>
-                                    <a href="{{ route('user.deleteUser', ['id' => $user->id]) }}"
-                                        class="btn btn-sm btn-danger"
-                                        onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này?')">Delete</a>
+                                <td>{{ $user->phone }}</td> <!-- Thêm cột phone -->
+                                <td>{{ $user->address }}</td> <!-- Thêm cột address -->
+                                <td>
+                                    <a href="{{ route('user.readUser', ['id' => $user->id]) }}" class="btn btn-info btn-sm">View</a>
+                                    <a href="{{ route('user.updateUser', ['id' => $user->id]) }}" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="{{ route('user.deleteUser', ['id' => $user->id]) }}" class="btn btn-danger btn-sm"
+                                       onclick="return confirm('Are you sure?')">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
