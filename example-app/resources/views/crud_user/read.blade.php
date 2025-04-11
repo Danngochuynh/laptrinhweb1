@@ -10,8 +10,6 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Phone</th>
-                        <th>Address</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -19,8 +17,6 @@
                         <td>{{$messi->id}}</td>
                         <td>{{$messi->name}}</td>
                         <td>{{$messi->email}}</td>
-                        <td>{{$messi->phone}}</td>
-                        <td>{{$messi->address}}</td>
                     </tr>
                 </tbody>
 

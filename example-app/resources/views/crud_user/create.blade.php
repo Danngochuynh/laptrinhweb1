@@ -64,20 +64,6 @@
                     @enderror
                 </div>
                 <div class="mb-4">
-                    <label for="phone" class="form-label">Phone</label>
-                    <input type="tel" class="form-control" name="phone" id="phone" required pattern="[0-9]{10,12}" placeholder="Nhập số điện thoại">
-                    @error('phone')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="mb-4">
-                    <label for="address" class="form-label">Address</label>
-                    <input type="text" class="form-control" name="address" id="address" placeholder="Nhập địa chỉ">
-                    @error('address')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-                <div class="mb-4">
                     <label for="password" class="form-label">Mật khẩu</label>
                     <input type="password" class="form-control" name="password" id="password" required placeholder="Nhập mật khẩu">
                     @error('password')

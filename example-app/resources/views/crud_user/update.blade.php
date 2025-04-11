@@ -29,21 +29,6 @@
                                 @endif
                             </div>
                             <div class="form-group mb-3">
-                                <input type="text" placeholder="Phone" id="phone" class="form-control"
-                                    name="phone" value="{{ old('phone', $user->phone) }}" required>
-                                @if ($errors->has('phone'))
-                                <span class="text-danger">{{ $errors->first('phone') }}</span>
-                                @endif
-                            </div>
-                            <div class="form-group mb-3">
-                                <input type="text" placeholder="Address" id="address" class="form-control"
-                                    name="address" value="{{ old('address', $user->address) }}" required>
-                                @if ($errors->has('address'))
-                                <span class="text-danger">{{ $errors->first('address') }}</span>
-                                @endif
-                            </div>
-
-                            <div class="form-group mb-3">
                                 <input type="password" placeholder="New Passwords (Optional)" id="password" class="form-control"
                                     name="password">
                                 @if ($errors->has('password'))
