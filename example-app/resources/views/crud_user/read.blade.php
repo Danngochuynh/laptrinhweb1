@@ -14,12 +14,11 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{$messi->id}}</td>
-                        <td>{{$messi->name}}</td>
-                        <td>{{$messi->email}}</td>
+                        <td>{{$user->id}}</td>
+                        <td>{{$user->name}}</td>
+                        <td>{{$user->email}}</td>
                     </tr>
                 </tbody>
-
             </table>
         </div>
     </div>
