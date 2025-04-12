@@ -4,61 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Đăng nhập</title>
-
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body>
-    <div class="container mt-5 d-flex justify-content-center">
-        <div class="border border-2 border-dark p-5" style="max-width: 500px; width: 100%">
-        <div class="text-end mb-3">
-                <a href="{{ route('user.createUser') }}" class="btn btn-outline-success">Đăng ký</a>
-            </div>
-            <h1 class="text-center fs-5 mb-4">Dang Nhap</h1>
+<body class="bg-white">
 
-            @if(session('success'))
-                <div class="alert alert-success">{{ session('success') }}</div>
-            @endif
+    <!-- Header menu -->
+    <div class="text-center py-2 border-bottom">
+        Home |
+        <strong>Đăng nhập</strong> |
+        <a href="{{ route('user.createUser') }}" class="text-decoration-none">Đăng ký</a>
+    </div>
+
+    <!-- Form đăng nhập -->
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+        <div class="border border-dark p-4" style="width: 350px;">
+            <h5 class="text-center mb-4">Màn hình đăng nhập</h5>
 
             <form action="{{ route('user.authUser') }}" method="POST">
                 @csrf
-                <!-- Email -->
+
+                <!-- Username -->
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" name="email" id="email" required placeholder="Nhập email">
-                    @error('email')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
+                    <label for="email" class="form-label">Username</label>
+                    <input type="email" class="form-control" name="email" id="email" required>
                 </div>
 
                 <!-- Mật khẩu -->
                 <div class="mb-3">
                     <label for="password" class="form-label">Mật khẩu</label>
-                    <input type="password" class="form-control" name="password" id="password" required placeholder="Nhập mật khẩu">
-                    @error('password')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
+                    <input type="password" class="form-control" name="password" id="password" required>
                 </div>
 
-                <!-- Ghi nhớ đăng nhập -->
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="rememberMe" name="remember">
+                <!-- Ghi nhớ -->
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="rememberMe" name="remember">
                     <label class="form-check-label" for="rememberMe">Ghi nhớ đăng nhập</label>
                 </div>
 
-                <!-- Nút đăng nhập -->
-                <div class="d-flex align-items-center mt-4">
-                    <a class="ms-auto me-4 text-decoration-none" href="#">Quên mật khẩu?</a>
+                <!-- Quên mật khẩu & Đăng nhập -->
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="#" class="text-decoration-none">Quên mật khẩu</a>
                     <button type="submit" class="btn btn-primary">Đăng nhập</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
+    <!-- Footer -->
+    <div class="text-center py-2 border-top">
+        Lập trình web @01/2024
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
