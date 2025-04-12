@@ -9,9 +9,8 @@
                 @csrf
                 <input name="id" type="hidden" value="{{ $user->id }}">
 
-                {{-- Username --}}
                 <div class="mb-3 row align-items-center">
-                    <label for="username" class="col-sm-3 form-label">Username</label>
+                <label for="username" class="col-sm-3 form-label">Facebook</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control p-1 border border-dark rounded-0" name="name"
                             value="{{ old('name', $user->name) }}" id="username" required autofocus />
@@ -21,9 +20,8 @@
                     </div>
                 </div>
 
-                {{-- Email --}}
                 <div class="mb-3 row align-items-center">
-                    <label for="email" class="col-sm-3 form-label">Email</label>
+                <label for="username" class="col-sm-3 form-label">Facebook</label>
                     <div class="col-sm-9">
                         <input type="email" class="form-control p-1 border border-dark rounded-0" name="email"
                             value="{{ old('email', $user->email) }}" id="email" required />
@@ -33,7 +31,6 @@
                     </div>
                 </div>
 
-                {{-- Age --}}
                 <div class="form-group mb-3">
                 <label for="username" class="col-sm-3 form-label">age </label>
                     <input type="text" placeholder="Age" id="age" class="form-control"
@@ -43,7 +40,6 @@
                     @enderror
                 </div>
 
-                {{-- Facebook --}}
                 <div class="form-group mb-3">
                 <label for="username" class="col-sm-3 form-label">Facebook</label>
                     <input type="text" placeholder="Facebook" id="facebook" class="form-control"
@@ -53,7 +49,6 @@
                     @enderror
                 </div>
 
-                {{-- Password --}}
                 <div class="form-group mb-3">
                     <input type="password" placeholder="New Password (Optional)" id="password" class="form-control"
                         name="password">
