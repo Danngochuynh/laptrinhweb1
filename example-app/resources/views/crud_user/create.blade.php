@@ -26,25 +26,6 @@
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-
-                <!-- Phone -->
-                <div class="mb-3">
-                    <label for="phone" class="form-label">Số điện thoại</label>
-                    <input type="tel" class="form-control" name="phone" id="phone" pattern="[0-9]{10,12}" required placeholder="Nhập số điện thoại">
-                    @error('phone')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <!-- Address -->
-                <div class="mb-3">
-                    <label for="address" class="form-label">Địa chỉ</label>
-                    <input type="text" class="form-control" name="address" id="address" placeholder="Nhập địa chỉ">
-                    @error('address')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
-                </div>
-
                 <!-- Password -->
                 <div class="mb-3">
                     <label for="password" class="form-label">Mật khẩu</label>
