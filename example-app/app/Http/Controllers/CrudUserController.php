@@ -67,9 +67,10 @@ class CrudUserController extends Controller
         $check = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
             'age' => $data['age'],
             'facebook' => $data['facebook'],
+            'password' => Hash::make($data['password']),
+       
         ]);
 
         return redirect("login");
@@ -82,7 +83,7 @@ class CrudUserController extends Controller
         $user_id = $request->get('id');
         $user = User::find($user_id);
 
-        return view('crud_user.read', ['user' => $user]); //messi
+        return view('crud_user.read', ['user' => $user]); 
     }
 
     /**
@@ -124,11 +125,12 @@ class CrudUserController extends Controller
         $user = User::find($input['id']);
         $user->name = $input['name'];
         $user->email = $input['email'];
+        $user->age = $input['age'];
+        $user->facebook = $input['facebook'];
         if (!empty($input['password'])) {
             $user->password = Hash::make($input['password']);
         }
-        $user->age = $input['age'];
-        $user->facebook = $input['facebook'];
+     
         $user->save();
     
         return redirect("list")->withSuccess('User updated successfully!');
