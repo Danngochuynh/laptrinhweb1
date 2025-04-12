@@ -30,8 +30,6 @@ class CrudUserController extends Controller
         $request->validate([
             'email' => 'required',
             'password' => 'required',
-            'age' => 'required',
-            'facebook' => 'required',
         ]);
 
         $credentials = $request->only('email', 'password');
@@ -59,10 +57,10 @@ class CrudUserController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
             'age' => 'required',
             'facebook' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',   
         ]);
 
         $data = $request->all();
