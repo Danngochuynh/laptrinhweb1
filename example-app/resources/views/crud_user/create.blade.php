@@ -5,7 +5,7 @@
     <div class="container mt-5 d-flex justify-content-center">
         <div class="card shadow p-4" style="max-width: 500px; width: 100%;">
             <h2 class="text-center mb-4 fs-5">Thêm người dùng</h2>
-            
+
             <form action="{{ route('user.postUser') }}" method="POST">
                 @csrf
 
@@ -14,24 +14,40 @@
                     <label for="username" class="form-label">Username</label>
                     <input type="text" class="form-control" name="name" id="username" required placeholder="Nhập username">
                     @error('name')
-                        <span class="text-danger">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
-
                 <!-- Email -->
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control" name="email" id="email" required placeholder="Nhập email">
                     @error('email')
-                        <span class="text-danger">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
+                <!-- age -->
+                <div class="mb-3">
+                    <label for="age" class="form-label">age</label>
+                    <input type="age" class="form-control" name="age" id="age" required placeholder="Nhập age">
+                    @error('age')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+                <!-- facebook -->
+                <div class="mb-3">
+                    <label for="facebook" class="form-label">facebook</label>
+                    <input type="facebook" class="form-control" name="facebook" id="facebook" required placeholder="Nhập facebook">
+                    @error('facebook')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
                 <!-- Password -->
                 <div class="mb-3">
                     <label for="password" class="form-label">Mật khẩu</label>
                     <input type="password" class="form-control" name="password" id="password" required placeholder="Nhập mật khẩu">
                     @error('password')
-                        <span class="text-danger">{{ $message }}</span>
+                    <span class="text-danger">{{ $message }}</span>
                     @enderror
                 </div>
 

@@ -16,6 +16,8 @@
                                     <th width="10%">ID</th>
                                     <th width="20%">Tên</th>
                                     <th width="25%">Email</th>
+                                    <th width="20%">age</th>
+                                    <th width="20%">facebook</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -23,6 +25,8 @@
                                     <td class="text-center">{{ $user->id }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
+                                    <td>{{ $user->age }}</td>
+                                    <td>{{ $user->facebook }}</td>
                                 </tr>
                             </tbody>
                         </table>

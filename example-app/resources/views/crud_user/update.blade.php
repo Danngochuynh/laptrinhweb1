@@ -29,17 +29,17 @@
                                 @endif
                             </div>
                             <div class="form-group mb-3">
-                                <input type="text" placeholder="Phone" id="phone" class="form-control"
-                                    name="phone" value="{{ old('phone', $user->phone) }}" required>
-                                @if ($errors->has('phone'))
-                                <span class="text-danger">{{ $errors->first('phone') }}</span>
+                                <input type="text" placeholder="age" id="age" class="form-control"
+                                    name="age" value="{{ old('age', $user->phone) }}" required>
+                                @if ($errors->has('age'))
+                                <span class="text-danger">{{ $errors->first('age') }}</span>
                                 @endif
                             </div>
                             <div class="form-group mb-3">
-                                <input type="text" placeholder="Address" id="address" class="form-control"
-                                    name="address" value="{{ old('address', $user->address) }}" required>
-                                @if ($errors->has('address'))
-                                <span class="text-danger">{{ $errors->first('address') }}</span>
+                                <input type="text" placeholder="Address" id="age" class="form-control"
+                                    name="age" value="{{ old('age', $user->address) }}" required>
+                                @if ($errors->has('age'))
+                                <span class="text-danger">{{ $errors->first('age') }}</span>
                                 @endif
                             </div>
 

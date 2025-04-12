@@ -20,8 +20,8 @@
                             <th>ID</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Phone</th>
-                            <th>Address</th>
+                            <th>Age</th>
+                            <th>Facebook</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -31,8 +31,8 @@
                                 <td class="text-center">{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->phone }}</td> <!-- Thêm cột phone -->
-                                <td>{{ $user->address }}</td> <!-- Thêm cột address -->
+                                <td>{{ $user->age }}</td>
+                                <td>{{ $user->facebook }}</td> 
                                 <td>
                                     <a href="{{ route('user.readUser', ['id' => $user->id]) }}" class="btn btn-info btn-sm">View</a>
                                     <a href="{{ route('user.updateUser', ['id' => $user->id]) }}" class="btn btn-warning btn-sm">Edit</a>

@@ -30,7 +30,8 @@ class CrudUserController extends Controller
         $request->validate([
             'email' => 'required',
             'password' => 'required',
-            
+            'age' => 'required',
+            'facebook' => 'required',
         ]);
 
         $credentials = $request->only('email', 'password');
@@ -60,6 +61,8 @@ class CrudUserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
+            'age' => 'required',
+            'facebook' => 'required',
         ]);
 
         $data = $request->all();
@@ -67,7 +70,8 @@ class CrudUserController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-
+            'age' => $data['age'],
+            'facebook' => $data['facebook'],
         ]);
 
         return redirect("login");
@@ -115,6 +119,8 @@ class CrudUserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users,email,'.$input['id'],
             'password' => 'nullable|min:6',
+            'age' => 'required',
+            'facebook' => 'required',
         ]);
     
         $user = User::find($input['id']);
@@ -123,6 +129,8 @@ class CrudUserController extends Controller
         if (!empty($input['password'])) {
             $user->password = Hash::make($input['password']);
         }
+        $user->age = $input['age'];
+        $user->facebook = $input['facebook'];
         $user->save();
     
         return redirect("list")->withSuccess('User updated successfully!');
