@@ -35,6 +35,7 @@
 
                 {{-- Age --}}
                 <div class="form-group mb-3">
+                <label for="username" class="col-sm-3 form-label">age </label>
                     <input type="text" placeholder="Age" id="age" class="form-control"
                         name="age" value="{{ old('age', $user->age) }}" required>
                     @error('age')
@@ -44,6 +45,7 @@
 
                 {{-- Facebook --}}
                 <div class="form-group mb-3">
+                <label for="username" class="col-sm-3 form-label">Facebook</label>
                     <input type="text" placeholder="Facebook" id="facebook" class="form-control"
                         name="facebook" value="{{ old('facebook', $user->facebook) }}">
                     @error('facebook')
