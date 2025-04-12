@@ -130,7 +130,7 @@ class CrudUserController extends Controller
     /**
      * List of users
      */
-    public function listUser()
+    public function listUser(): mixed
     {
         if(Auth::check()){
             $users = User::all();
