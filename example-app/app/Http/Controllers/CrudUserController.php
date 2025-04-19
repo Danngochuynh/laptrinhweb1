@@ -7,13 +7,13 @@ use Session;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Role;
 /**
  * CRUD User controller
  */
 class CrudUserController extends Controller
 {
-
+    const MAX_RECORDS = 10;
     /**
      * Login page
      */
@@ -30,7 +30,6 @@ class CrudUserController extends Controller
         $request->validate([
             'email' => 'required',
             'password' => 'required',
-            
         ]);
 
         $credentials = $request->only('email', 'password');
@@ -65,9 +64,10 @@ class CrudUserController extends Controller
         $data = $request->all();
         $check = User::create([
             'name' => $data['name'],
+//            'phone' => $data['phone'],
+//            'address' => $data['address'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-
+            'password' => Hash::make($data['password'])
         ]);
 
         return redirect("login");
@@ -80,7 +80,7 @@ class CrudUserController extends Controller
         $user_id = $request->get('id');
         $user = User::find($user_id);
 
-        return view('crud_user.read', ['user' => $user]); //messi
+        return view('crud_user.read', ['messi' => $user]);
     }
 
     /**
@@ -110,36 +110,37 @@ class CrudUserController extends Controller
     public function postUpdateUser(Request $request)
     {
         $input = $request->all();
-    
+
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users,email,'.$input['id'],
-            'password' => 'nullable|min:6',
+            'email' => 'required|email|unique:users,id,'.$input['id'],
+            'password' => 'required|min:6',
         ]);
-    
-        $user = User::find($input['id']);
-        $user->name = $input['name'];
-        $user->email = $input['email'];
-        if (!empty($input['password'])) {
-            $user->password = Hash::make($input['password']);
-        }
-        $user->save();
-    
-        return redirect("list")->withSuccess('User updated successfully!');
-    }    
+
+       $user = User::find($input['id']);
+       $user->name = $input['name'];
+       $user->email = $input['email'];
+       $user->password = $input['password'];
+       $user->save();
+
+        return redirect("list")->withSuccess('You have signed-in');
+    }
+
     /**
      * List of users
      */
     public function listUser()
     {
-        if(Auth::check()){
-            $users = User::all();
-            return view('crud_user.list', ['users' => $users]);
-        }
-
-        return redirect("login")->withSuccess('You are not allowed to access');
+        $users = User::paginate(self::MAX_RECORDS);
+        return view('crud_user.list', ['users' => $users]);
     }
-
+    public function listByRole($id)
+    {
+        $role = Role::findOrFail($id);
+        $users = $role->users()->paginate(self::MAX_RECORDS);
+    
+        return view('crud_user.list', ['users' => $users]);
+    }
     /**
      * Sign out
      */
